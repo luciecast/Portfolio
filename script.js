@@ -1,4 +1,3 @@
-
 const projectsData = {
     projet1: {
         title: "Projet Site Village Vacance",
@@ -784,6 +783,8 @@ window.addEventListener('scroll', () => {
 });
 
 
+
+
 window.addEventListener('beforeunload', function() {
     if (modal._observer) {
         modal._observer.disconnect();
@@ -791,47 +792,48 @@ window.addEventListener('beforeunload', function() {
     animationObserver.disconnect();
 });
 
-
-/* -------- A REFAIRE TRUC INTERET ------- 
-const openBtn = document.getElementById("openInterests");
-const closeBtn = document.getElementById("closeInterests");
-const overlay = document.getElementById("interestsOverlay");
-
-openBtn.addEventListener("click", () => {
-    overlay.classList.add("open");
-});
-
-closeBtn.addEventListener("click", () => {
-    overlay.classList.remove("open");
-});
-
-// Tabs
-const tabs = document.querySelectorAll(".tab");
-const panels = document.querySelectorAll(".tab-panel");
-
-tabs.forEach(tab => {
-    tab.addEventListener("click", () => {
-        tabs.forEach(t => t.classList.remove("active"));
-        panels.forEach(p => p.classList.remove("active"));
-
-        tab.classList.add("active");
-        document.getElementById(tab.dataset.tab).classList.add("active");
-    });
-});
-
+// ---- CENTRES D'INTÉRÊT ----
 (function() {
-  const btn = document.getElementById('openInterests');
-  if (!btn) return;
+    const openBtn   = document.getElementById('openInterests');
+    const overlay   = document.getElementById('interestsOverlay');
+    const closeBtn  = document.getElementById('closeInterests');
 
+    if (!openBtn || !overlay || !closeBtn) return;
 
-  btn.classList.add('pulse');
+    function openModal() {
+        overlay.style.display = 'flex';
+        requestAnimationFrame(() => overlay.classList.add('open'));
+        document.body.style.overflow = 'hidden';
+    }
 
-  const portfolio = document.getElementById('portfolio');
-  if (portfolio) {
- 
-    portfolio.appendChild(btn);
-    btn.classList.add('top-anchored');
-   
-    btn.style.position = ''; 
-  }
-})();*/
+    function closeModal() {
+        overlay.classList.remove('open');
+        setTimeout(() => {
+            overlay.style.display = 'none';
+            document.body.style.overflow = '';
+        }, 350);
+    }
+
+    openBtn.addEventListener('click', openModal);
+    closeBtn.addEventListener('click', closeModal);
+    overlay.addEventListener('click', function(e) {
+        if (e.target === overlay) closeModal();
+    });
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') closeModal();
+    });
+
+    // Tabs
+    const tabs   = overlay.querySelectorAll('.tab');
+    const panels = overlay.querySelectorAll('.tab-panel');
+
+    tabs.forEach(tab => {
+        tab.addEventListener('click', function() {
+            tabs.forEach(t => t.classList.remove('active'));
+            panels.forEach(p => p.classList.remove('active'));
+            this.classList.add('active');
+            const target = overlay.querySelector('#tab-' + this.dataset.tab);
+            if (target) target.classList.add('active');
+        });
+    });
+})();
