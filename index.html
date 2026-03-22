@@ -26,7 +26,6 @@
  
     <section class="hero" id="hero">
         <div class="hero-left">
-    > <div class="interest-tag"> <span>centre d’intérêt</span> <div class="heart-arrow"></div> </div>
             <div class="hero-subtitle">UX/UI Designer & Webdesigner</div>
             <h1 class="hero-name">
                 <span class="first">LUCIE</span>
@@ -37,6 +36,17 @@
         <div class="hero-right">
             <div class="shape-circle"></div>
             <div class="shape-square"></div>
+
+            <button class="interests-badge" id="openInterests" aria-label="Voir mes centres d'intérêt">
+                <div class="badge-photo">
+                    <img src="assets/photo-lucie.jpg" alt="Lucie Castelli" onerror="this.style.display='none';this.parentElement.classList.add('no-photo')">
+                </div>
+                <div class="badge-text">
+                    <span class="badge-label">Centres d'intérêt</span>
+                    <span class="badge-icons">🎵 🎮 🎬 ✏️</span>
+                </div>
+                <div class="badge-arrow">↗</div>
+            </button>
             
             <div>
                 <p class="hero-description">
@@ -49,7 +59,7 @@
             </div>
         </div>
     </section>
-    
+
     <section class="about" id="about">
         <div class="section-header">
             <h2 class="section-title">PARCOURS</h2>
@@ -276,7 +286,7 @@
             </p>
             
             <ul class="contact-links">
-                <li><a href="mailto:lucie.castelli123@gmail.com">Email</a></li>
+                <li><a href="/cdn-cgi/l/email-protection#3f534a5c565a115c5e4c4b5a5353560e0d0c7f58525e5653115c5052">Email</a></li>
                 <li><a href="https://www.linkedin.com/in/lucie-castelli-1867b0291" target="_blank">LinkedIn</a></li>
                 <li><a href="https://github.com/luciecast">GitHub</a></li>
             </ul>
@@ -305,6 +315,124 @@
             </form>
         </div>
     </section>
+
+    <!-- Modal Centres d'intérêt -->
+    <div class="interests-overlay" id="interestsOverlay" role="dialog" aria-modal="true" aria-label="Centres d'intérêt de Lucie">
+        <div class="interests-window">
+            <button class="interests-close" id="closeInterests" aria-label="Fermer">✕</button>
+
+            <div class="interests-header">
+                <div class="interests-photo-wrap">
+                    <img src="assets/photo-lucie.jpg" alt="Lucie Castelli" class="interests-main-photo" onerror="this.parentElement.classList.add('no-photo')">
+                    <div class="interests-photo-placeholder">LC</div>
+                </div>
+                <div class="interests-header-text">
+                    <h2 class="interests-title">Lucie Castelli</h2>
+                    <p class="interests-subtitle">UX/UI Designer & Webdesigner</p>
+                    <a href="https://drive.google.com/drive/folders/1Er8l66DnQ7Hq1gNHwHY5fgiRocUpV7zp?usp=sharing" target="_blank" rel="noopener" class="drive-link">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                        Mon CV
+                    </a>
+                </div>
+            </div>
+
+            <div class="interests-tabs">
+                <button class="tab active" data-tab="musique">🎵 Musique</button>
+                <button class="tab" data-tab="jeux">🎮 Jeux vidéo</button>
+                <button class="tab" data-tab="cinema">🎬 Cinéma</button>
+                <button class="tab" data-tab="dessin">✏️ Dessin</button>
+            </div>
+
+            <div class="interests-body">
+                <div class="tab-panel active" id="tab-musique">
+                    <div class="interest-card">
+                        <div class="interest-icon">🎵</div>
+                        <div class="interest-content">
+                           <h3>Musique</h3>
+                            <p>J’écoute beaucoup de styles énergiques, surtout la <strong>K‑pop hardcore/hardstyle</strong> et le
+                            <strong>rap FR/US</strong>. Mes artistes préférés sont <strong>NCT 127</strong>, <strong>Red Velvet</strong>,
+                            <strong>Poisson Chaat</strong> et <strong>Lil Peep</strong>. J’aime les sons puissants, les basses lourdes et les ambiances émotionnelles quand je code ou que je me détends.</p>
+
+                            <div class="interest-tags">
+                                <span class="itag">K‑pop</span>
+                                <span class="itag">Hardstyle</span>
+                                <span class="itag">Rap</span>
+                                <span class="itag">Énergique</span>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-panel" id="tab-jeux">
+                    <div class="interest-card">
+                        <div class="interest-icon">🎮</div>
+                        <div class="interest-content">
+                            <h3>Jeux vidéo</h3>
+                            <p>J’aime beaucoup les jeux narratifs et les expériences immersives. Mes favoris sont
+                            <strong>Resident Evil</strong>, <strong>Detroit: Become Human</strong>, <strong>Doki Doki Literature Club</strong> et
+                            <strong>Alien: Isolation</strong>. J’apprécie surtout les ambiances fortes, les choix narratifs et les jeux qui jouent avec la psychologie du joueur.</p>
+
+                            <div class="interest-tags">
+                                <span class="itag">Horreur</span>
+                                <span class="itag">Narratif</span>
+                                <span class="itag">Psychologique</span>
+                                <span class="itag">Survie</span>
+                            </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-panel" id="tab-cinema">
+                    <div class="interest-card">
+                        <div class="interest-icon">🎬</div>
+                        <div class="interest-content">
+                            <h3>Cinéma & Séries</h3>
+                            <p>J’adore les films d’horreur, en particulier le <strong>body horror</strong>. Mon film préféré est
+                            <strong>Parasite</strong> pour son mélange de tension et de critique sociale. Je regarde aussi
+                            beaucoup d’<strong>animes</strong> et de <strong>K‑dramas</strong> — mon anime préféré est
+                            <strong>JoJo’s Bizarre Adventure</strong>, pour son style unique et son univers complètement
+                            déjanté.</p>
+
+                            <div class="interest-tags">
+                                <span class="itag">Horreur</span>
+                                <span class="itag">Body Horror</span>
+                                <span class="itag">Anime</span>
+                                <span class="itag">K‑drama</span>
+                                <span class="itag">Psychologique</span>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-panel" id="tab-dessin">
+                    <div class="interest-card">
+                        <div class="interest-icon">✏️</div>
+                        <div class="interest-content">
+                           <h3>Dessin & Illustration</h3>
+                            <p>Je dessine de temps en temps des <strong>pages de manga</strong>, surtout pour m’amuser et
+                            expérimenter des mises en scène. Je travaille principalement sur papier, avec un style
+                            inspiré du manga et du character design. Tu peux découvrir quelques-uns de mes dessins
+                            en cliquant sur mon <strong>Drive</strong> juste ici :</p>
+
+                            <p><a href="https://drive.google.com/drive/folders/1qIvGDFnxHkLwp9hupb4M-3QaMcqpn7H6?usp=sharing" target="_blank">Voir mes dessins</a></p>
+
+                            <div class="interest-tags">
+                                <span class="itag">Manga</span>
+                                <span class="itag">Illustration</span>
+                                <span class="itag">Traditionnel</span>
+                                <span class="itag">Storyboard</span>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <div class="project-modal" id="projectModal">
         <div class="modal-content">
