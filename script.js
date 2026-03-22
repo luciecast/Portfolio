@@ -456,7 +456,7 @@ document.body.appendChild(modalOverlay);
 let isModalOpen = false;
 let currentProjectData = null;
 
-
+let scrollPositionBeforeModal = 0;
 let isOpeningModal = false;
 
 
@@ -485,6 +485,7 @@ function openModal(data) {
     isOpeningModal = true;
     isModalOpen = true;
     currentProjectData = data;
+    scrollPositionBeforeModal = window.pageYOffset;
     
 
     modalTitle.textContent = data.title;
@@ -552,6 +553,7 @@ function closeModal() {
     setTimeout(() => {
         modalOverlay.classList.remove('active');
         document.body.classList.remove('modal-open');
+         window.scrollTo(0, scrollPositionBeforeModal);
         
     
         modalMainContent.querySelectorAll('.modal-section').forEach(section => {
